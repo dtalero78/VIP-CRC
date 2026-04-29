@@ -13,7 +13,7 @@ const {
   title = `${site.brand} | Examen médico para licencia de conducción en Bogotá`,
   description = site.description,
   canonical = site.url,
-  image = `${site.url}/logo.png`,
+  image = `${site.url}/og-image.jpg`,
 } = Astro.props;
 
 const localBusiness = {
@@ -24,7 +24,7 @@ const localBusiness = {
   alternateName: site.brand,
   url: site.url,
   logo: `${site.url}/logo.png`,
-  image: `${site.url}/logo.png`,
+  image: `${site.url}/og-image.jpg`,
   description: site.description,
   telephone: [`+57${site.phone.landline}`, `+57${site.phone.mobile}`],
   email: site.email,
