@@ -13,7 +13,7 @@ const {
   title = `${site.brand} | Examen médico para licencia de conducción en Bogotá`,
   description = site.description,
   canonical = site.url,
-  image = `${site.url}/og-image.jpg`,
+  image = `${site.url}/logo.png`,
 } = Astro.props;
 
 const localBusiness = {
@@ -23,8 +23,8 @@ const localBusiness = {
   name: site.legalName,
   alternateName: site.brand,
   url: site.url,
-  logo: `${site.url}/logo.svg`,
-  image: `${site.url}/og-image.jpg`,
+  logo: `${site.url}/logo.png`,
+  image: `${site.url}/logo.png`,
   description: site.description,
   telephone: [`+57${site.phone.landline}`, `+57${site.phone.mobile}`],
   email: site.email,
@@ -140,7 +140,8 @@ const faqSchema = {
     <meta name="theme-color" content="#0d58a1" />
 
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
     <link rel="alternate" hreflang="es-co" href={site.url} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
