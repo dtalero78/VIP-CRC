@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import choferaImg from '../assets/chofera.png';
 import { site } from '../data/site';
 
 const features = [
@@ -23,8 +25,47 @@ const features = [
 
 <section id="nosotros" class="py-20 lg:py-28 bg-white">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <div>
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="relative order-2 lg:order-1">
+        <div class="absolute -top-6 -right-6 h-32 w-32 rounded-3xl bg-gradient-to-br from-accent-400 to-accent-600 animate-float-slow -z-10"></div>
+        <div class="absolute -bottom-6 -left-6 h-40 w-40 rounded-full bg-gradient-to-br from-brand-300 to-brand-600 animate-float-slow [animation-delay:1.4s] -z-10"></div>
+
+        <figure class="relative aspect-[4/5] max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-brand-900/20 ring-1 ring-white/40">
+          <Image
+            src={choferaImg}
+            alt="Conductora sonriente con su licencia de conducción tras realizar el examen médico en VIP CRC Bogotá"
+            widths={[400, 600, 900]}
+            sizes="(min-width: 1024px) 28rem, (min-width: 640px) 24rem, 90vw"
+            formats={['avif', 'webp']}
+            quality={82}
+            loading="lazy"
+            decoding="async"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-950/40 via-transparent to-transparent"></div>
+
+          <div class="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-white/95 backdrop-blur px-3 py-1.5 text-xs font-bold text-brand-800 ring-1 ring-white shadow-sm">
+            <svg class="h-3.5 w-3.5 text-accent-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z"/></svg>
+            Certificado al RUNT
+          </div>
+
+          <div class="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/95 backdrop-blur p-4 ring-1 ring-white/60 shadow-xl">
+            <div class="flex items-center gap-3">
+              <div class="flex -space-x-2">
+                <div class="h-9 w-9 rounded-full bg-gradient-to-br from-brand-400 to-brand-700 ring-2 ring-white"></div>
+                <div class="h-9 w-9 rounded-full bg-gradient-to-br from-accent-400 to-accent-600 ring-2 ring-white"></div>
+                <div class="h-9 w-9 rounded-full bg-gradient-to-br from-brand-600 to-brand-900 ring-2 ring-white"></div>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-slate-900">+10.000 conductores</p>
+                <p class="text-[11px] text-slate-500">confiaron en nosotros este año</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </div>
+
+      <div class="order-1 lg:order-2">
         <span class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-brand-700">Nosotros</span>
         <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
           {site.legalName}
@@ -45,19 +86,23 @@ const features = [
             <dd class="mt-1 font-bold text-slate-900">CRC – MinTransporte</dd>
           </div>
         </dl>
-      </div>
 
-      <ul class="grid sm:grid-cols-2 gap-4">
-        {features.map((f) => (
-          <li class="rounded-2xl bg-gradient-to-br from-brand-50 to-white p-5 ring-1 ring-slate-100">
-            <div class="h-10 w-10 rounded-xl bg-brand-600 text-white grid place-items-center">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-            </div>
-            <h3 class="mt-4 text-base font-bold text-slate-900">{f.title}</h3>
-            <p class="mt-1 text-sm text-slate-600">{f.desc}</p>
-          </li>
-        ))}
-      </ul>
+        <ul class="mt-8 grid sm:grid-cols-2 gap-3">
+          {features.map((f) => (
+            <li class="rounded-2xl bg-gradient-to-br from-brand-50 to-white p-4 ring-1 ring-slate-100">
+              <div class="flex items-start gap-3">
+                <div class="h-8 w-8 rounded-lg bg-brand-600 text-white grid place-items-center flex-shrink-0">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-slate-900">{f.title}</h3>
+                  <p class="mt-0.5 text-xs text-slate-600 leading-relaxed">{f.desc}</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   </div>
 </section>
