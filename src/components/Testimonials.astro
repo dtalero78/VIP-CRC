@@ -1,0 +1,52 @@
+---
+const testimonials = [
+  {
+    name: 'Andrés M.',
+    role: 'Renovación licencia B1',
+    text: 'Excelente atención. En menos de una hora ya tenía mi certificado reportado al RUNT. Recomendado 100%.',
+  },
+  {
+    name: 'Natalia R.',
+    role: 'Primera licencia A2',
+    text: 'El personal súper amable y el lugar muy moderno. Me explicaron cada examen y todo fluyó rapidísimo.',
+  },
+  {
+    name: 'Carlos P.',
+    role: 'Recategorización C1',
+    text: 'Llegué con cita y no esperé nada. Precio justo y proceso transparente. Volveré para mi próxima renovación.',
+  },
+];
+---
+
+<section class="py-20 lg:py-28 bg-gradient-to-b from-slate-50 to-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <span class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-brand-700">Testimonios</span>
+      <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+        Conductores que ya confiaron en nosotros
+      </h2>
+    </div>
+
+    <div class="mt-12 grid lg:grid-cols-3 gap-6">
+      {testimonials.map((t) => (
+        <figure class="rounded-3xl bg-white p-7 ring-1 ring-slate-100 shadow-sm hover:shadow-lg transition-shadow">
+          <div class="flex items-center gap-1 text-amber-400">
+            {[...Array(5)].map(() => (
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            ))}
+          </div>
+          <blockquote class="mt-4 text-sm text-slate-700 leading-relaxed">"{t.text}"</blockquote>
+          <figcaption class="mt-5 flex items-center gap-3">
+            <div class="h-10 w-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 text-white grid place-items-center font-bold">
+              {t.name.charAt(0)}
+            </div>
+            <div>
+              <p class="text-sm font-bold text-slate-900">{t.name}</p>
+              <p class="text-xs text-slate-500">{t.role}</p>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

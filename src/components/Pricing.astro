@@ -1,0 +1,112 @@
+---
+import { site } from '../data/site';
+
+const formatCOP = (n: number) =>
+  new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(n);
+
+const plans = [
+  {
+    title: '1 categoría',
+    online: 180000,
+    regular: 250000,
+    highlighted: false,
+    features: [
+      'Examen de medicina general',
+      'Examen visual',
+      'Examen auditivo (audiometría)',
+      'Examen psicológico',
+      'Reporte automático al RUNT',
+    ],
+  },
+  {
+    title: '2 categorías',
+    online: 300000,
+    regular: 380000,
+    highlighted: true,
+    features: [
+      'Todos los exámenes incluidos',
+      'Válido para dos categorías (ej. A2 + B1)',
+      'Atención prioritaria',
+      'Reporte inmediato al RUNT',
+      'Soporte post-examen vía WhatsApp',
+    ],
+  },
+];
+---
+
+<section id="precios" class="py-20 lg:py-28 bg-slate-50">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-brand-700">Tarifas</span>
+      <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+        Precios claros, sin sorpresas
+      </h2>
+      <p class="mt-4 text-lg text-slate-600">
+        Promoción especial pagando en línea. Todos los exámenes incluidos y reporte al RUNT garantizado.
+      </p>
+    </div>
+
+    <div class="mt-12 grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      {plans.map((p) => (
+        <article
+          class={`relative rounded-3xl p-8 ${
+            p.highlighted
+              ? 'bg-gradient-to-br from-brand-700 to-brand-900 text-white shadow-2xl shadow-brand-900/30 ring-1 ring-brand-500/30'
+              : 'bg-white text-slate-800 ring-1 ring-slate-200'
+          }`}
+        >
+          {p.highlighted && (
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-accent-500 px-3 py-1 text-xs font-bold text-white shadow-md">
+              Más solicitado
+            </span>
+          )}
+          <h3 class={`text-lg font-bold ${p.highlighted ? 'text-white' : 'text-slate-900'}`}>{p.title}</h3>
+          <div class="mt-4 flex items-baseline gap-3">
+            <span class={`text-4xl font-extrabold ${p.highlighted ? 'text-white' : 'text-slate-900'}`}>
+              {formatCOP(p.online)}
+            </span>
+            <span class={`text-sm line-through ${p.highlighted ? 'text-brand-200' : 'text-slate-400'}`}>
+              {formatCOP(p.regular)}
+            </span>
+          </div>
+          <p class={`mt-1 text-xs ${p.highlighted ? 'text-brand-100' : 'text-slate-500'}`}>
+            Tarifa pagando en línea
+          </p>
+
+          <ul class="mt-6 space-y-3 text-sm">
+            {p.features.map((f) => (
+              <li class="flex items-start gap-2">
+                <svg
+                  class={`h-5 w-5 flex-shrink-0 ${p.highlighted ? 'text-accent-400' : 'text-accent-600'}`}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                ><path d="M20 6L9 17l-5-5"/></svg>
+                <span class={p.highlighted ? 'text-brand-50' : 'text-slate-700'}>{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href={site.social.whatsapp}
+            target="_blank"
+            rel="noopener"
+            class={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors ${
+              p.highlighted
+                ? 'bg-white text-brand-800 hover:bg-brand-50'
+                : 'bg-brand-600 text-white hover:bg-brand-700'
+            }`}
+          >
+            Reservar ahora
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <p class="mt-8 text-center text-xs text-slate-500">
+      Los precios pueden variar sin previo aviso. Aplican condiciones según la regulación del Ministerio de Transporte.
+    </p>
+  </div>
+</section>

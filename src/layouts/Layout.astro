@@ -1,0 +1,175 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+}
+
+const {
+  title = `${site.brand} | Examen médico para licencia de conducción en Bogotá`,
+  description = site.description,
+  canonical = site.url,
+  image = `${site.url}/og-image.jpg`,
+} = Astro.props;
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': ['MedicalBusiness', 'LocalBusiness'],
+  '@id': `${site.url}#organization`,
+  name: site.legalName,
+  alternateName: site.brand,
+  url: site.url,
+  logo: `${site.url}/logo.svg`,
+  image: `${site.url}/og-image.jpg`,
+  description: site.description,
+  telephone: [`+57${site.phone.landline}`, `+57${site.phone.mobile}`],
+  email: site.email,
+  taxID: site.nit,
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    addressLocality: site.address.city,
+    addressRegion: site.address.region,
+    postalCode: site.address.zip,
+    addressCountry: site.address.country,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: site.address.geo.lat,
+    longitude: site.address.geo.lng,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '07:00',
+      closes: '17:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '07:00',
+      closes: '13:00',
+    },
+  ],
+  areaServed: {
+    '@type': 'City',
+    name: 'Bogotá',
+  },
+  sameAs: [site.social.facebook, site.social.instagram],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Exámenes médicos para licencia de conducción',
+    itemListElement: [
+      { '@type': 'Offer', name: 'Examen médico para licencia – 1 categoría', price: '180000', priceCurrency: 'COP' },
+      { '@type': 'Offer', name: 'Examen médico para licencia – 2 categorías', price: '300000', priceCurrency: 'COP' },
+    ],
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Qué exámenes incluye el examen médico para licencia de conducción?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Incluye examen de medicina general, examen visual (agudeza y percepción de colores), examen auditivo (audiometría) y evaluación psicológica con pruebas psicomotoras.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuánto tarda el proceso del examen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'El proceso completo dura aproximadamente 45 minutos. Al finalizar, los resultados se reportan automáticamente al RUNT.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Necesito agendar cita previa?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí, recomendamos agendar tu cita por WhatsApp o el formulario de la página para garantizar atención inmediata sin filas.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué documentos debo llevar?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Solo necesitas tu cédula de ciudadanía original. Si usas lentes, llévalos para el examen visual.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿El certificado se reporta al RUNT?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Somos un Centro de Reconocimiento de Conductores (CRC) habilitado por el Ministerio de Transporte y certificado por la ONAC. El reporte al RUNT es inmediato.',
+      },
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="es-CO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={site.keywords.join(', ')} />
+    <meta name="author" content={site.legalName} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="language" content="Spanish" />
+    <meta name="geo.region" content="CO-DC" />
+    <meta name="geo.placename" content="Bogotá" />
+    <meta name="geo.position" content={`${site.address.geo.lat};${site.address.geo.lng}`} />
+    <meta name="ICBM" content={`${site.address.geo.lat}, ${site.address.geo.lng}`} />
+    <meta name="theme-color" content="#0d58a1" />
+
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" hreflang="es-co" href={site.url} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content={site.brand} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </head>
+  <body class="bg-white text-slate-800 antialiased">
+    <slot />
+  </body>
+</html>

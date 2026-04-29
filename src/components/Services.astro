@@ -1,0 +1,58 @@
+---
+const services = [
+  {
+    title: 'Examen de medicina general',
+    description: 'Valoración integral de salud por médico certificado: signos vitales, antecedentes y aptitud para conducir.',
+    icon: 'stethoscope',
+  },
+  {
+    title: 'Examen visual',
+    description: 'Agudeza visual, percepción de profundidad, visión nocturna y diferenciación de colores con equipos calibrados.',
+    icon: 'eye',
+  },
+  {
+    title: 'Examen auditivo',
+    description: 'Audiometría tonal en cabina insonorizada para validar la capacidad auditiva exigida por norma.',
+    icon: 'ear',
+  },
+  {
+    title: 'Examen psicológico',
+    description: 'Pruebas psicomotoras, atención, coordinación y reacción aplicadas por profesionales con tarjeta vigente.',
+    icon: 'brain',
+  },
+];
+
+const icons: Record<string, string> = {
+  stethoscope: '<path d="M6 2v6a6 6 0 0 0 12 0V2"/><circle cx="20" cy="14" r="2"/><path d="M12 14v3a5 5 0 0 0 5 5h0a5 5 0 0 0 5-5v-1"/>',
+  eye: '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  ear: '<path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0"/><path d="M9 11a3 3 0 0 1 6 0"/>',
+  brain: '<path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2a2.5 2.5 0 0 0-2.5 2.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2z"/>',
+};
+---
+
+<section id="servicios" class="py-20 lg:py-28 bg-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <span class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-brand-700">Servicios</span>
+      <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+        Todos los exámenes en un solo lugar
+      </h2>
+      <p class="mt-4 text-lg text-slate-600">
+        Realizamos los cuatro exámenes obligatorios para tu licencia de conducción en una sola visita,
+        con equipos modernos y profesionales certificados.
+      </p>
+    </div>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((s) => (
+        <article class="group relative rounded-3xl bg-gradient-to-b from-white to-brand-50/40 p-6 ring-1 ring-slate-100 hover:ring-brand-200 hover:shadow-xl hover:shadow-brand-900/5 transition-all">
+          <div class="h-12 w-12 rounded-2xl bg-brand-600 text-white grid place-items-center shadow-md shadow-brand-600/20 group-hover:scale-110 transition-transform">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" set:html={icons[s.icon]}></svg>
+          </div>
+          <h3 class="mt-5 text-lg font-bold text-slate-900">{s.title}</h3>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">{s.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

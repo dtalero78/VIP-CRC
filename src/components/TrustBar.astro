@@ -1,0 +1,28 @@
+---
+const badges = [
+  { label: 'RUNT', sub: 'Reporte automático' },
+  { label: 'ONAC', sub: 'Acreditación oficial' },
+  { label: 'MinTransporte', sub: 'CRC habilitado' },
+  { label: 'Habeas Data', sub: 'Datos protegidos' },
+];
+---
+
+<section class="border-y border-slate-100 bg-white/60 backdrop-blur">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
+    <ul class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      {badges.map((b) => (
+        <li class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-xl bg-brand-50 grid place-items-center ring-1 ring-brand-100">
+            <svg class="h-5 w-5 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M9 12l2 2 4-4M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-slate-900">{b.label}</p>
+            <p class="text-xs text-slate-500">{b.sub}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

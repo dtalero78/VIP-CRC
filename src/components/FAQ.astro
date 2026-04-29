@@ -1,0 +1,59 @@
+---
+const faqs = [
+  {
+    q: '¿Qué exámenes incluye el examen médico para licencia de conducción?',
+    a: 'Incluye examen de medicina general, examen visual (agudeza y percepción de colores), examen auditivo (audiometría) y evaluación psicológica con pruebas psicomotoras. Todos en una sola visita.',
+  },
+  {
+    q: '¿Cuánto tarda el proceso del examen?',
+    a: 'El proceso completo dura aproximadamente 45 minutos. Al finalizar, los resultados se reportan automáticamente al RUNT.',
+  },
+  {
+    q: '¿Necesito agendar cita previa?',
+    a: 'Sí, recomendamos agendar tu cita por WhatsApp o el formulario de contacto para garantizar atención inmediata sin filas.',
+  },
+  {
+    q: '¿Qué documentos debo llevar?',
+    a: 'Solo necesitas tu cédula de ciudadanía original. Si usas lentes o audífonos, llévalos para realizar correctamente los exámenes.',
+  },
+  {
+    q: '¿El certificado se reporta al RUNT?',
+    a: 'Sí. Somos un Centro de Reconocimiento de Conductores (CRC) habilitado por el Ministerio de Transporte y certificado por la ONAC. El reporte al RUNT es inmediato.',
+  },
+  {
+    q: '¿Cuánto tiempo dura vigente el certificado médico?',
+    a: 'El certificado tiene una vigencia de 3 meses. Dentro de ese plazo debes realizar el trámite de tu licencia.',
+  },
+  {
+    q: '¿Puedo cancelar o reprogramar mi cita?',
+    a: 'Por supuesto. Escríbenos por WhatsApp con al menos 2 horas de anticipación y reprogramamos sin costo.',
+  },
+];
+---
+
+<section id="faq" class="py-20 lg:py-28 bg-white">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <span class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-brand-700">Preguntas frecuentes</span>
+      <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+        Resolvemos tus dudas
+      </h2>
+    </div>
+
+    <div class="mt-12 space-y-3">
+      {faqs.map((f, i) => (
+        <details class="group rounded-2xl bg-white ring-1 ring-slate-200 hover:ring-brand-200 transition-all open:ring-brand-300 open:shadow-sm" open={i === 0}>
+          <summary class="flex cursor-pointer items-center justify-between gap-4 p-5 list-none">
+            <h3 class="text-base font-semibold text-slate-900">{f.q}</h3>
+            <span class="grid place-items-center h-8 w-8 rounded-full bg-brand-50 text-brand-700 ring-1 ring-brand-100 group-open:rotate-45 transition-transform">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+            </span>
+          </summary>
+          <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">
+            {f.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
