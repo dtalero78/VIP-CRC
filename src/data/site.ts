@@ -29,7 +29,7 @@ export const site = {
     whatsapp: '573134010901',
     whatsappDisplay: '+57 313 401 0901',
   },
-  email: 'contacto@examenesparapase.com',
+  email: null as string | null,
   address: {
     street: 'Carrera 28A No. 51-70',
     city: 'Bogotá D.C.',
@@ -41,10 +41,10 @@ export const site = {
     geo: { lat: 4.6394, lng: -74.0826 },
   },
   hours: {
-    weekdays: 'Lunes a Viernes · 7:00 a.m. – 5:00 p.m.',
-    saturday: 'Sábados · 7:00 a.m. – 1:00 p.m.',
-    schemaWeekdays: 'Mo,Tu,We,Th,Fr 07:00-17:00',
-    schemaSaturday: 'Sa 07:00-13:00',
+    weekdays: 'Lunes a Viernes · 7:00 a.m. – 4:00 p.m.',
+    saturday: 'Sábados · 7:00 a.m. – 12:15 p.m.',
+    schemaWeekdays: 'Mo,Tu,We,Th,Fr 07:00-16:00',
+    schemaSaturday: 'Sa 07:00-12:15',
   },
   social: {
     whatsapp: 'https://wa.me/573134010901?text=Hola%2C%20quiero%20agendar%20mi%20examen%20m%C3%A9dico%20para%20licencia%20de%20conducci%C3%B3n.',

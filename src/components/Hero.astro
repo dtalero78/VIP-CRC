@@ -2,6 +2,9 @@
 import { Image } from 'astro:assets';
 import conductorImg from '../assets/conductor.png';
 import { site } from '../data/site';
+
+const heroWhatsAppMessage = 'Hola, quiero validar si puedo hacer mi examen hoy';
+const heroWhatsAppUrl = `https://wa.me/${site.phone.whatsapp}?text=${encodeURIComponent(heroWhatsAppMessage)}`;
 ---
 
 <section id="inicio" class="relative overflow-hidden bg-gradient-to-b from-brand-50/60 via-white to-white">
@@ -16,30 +19,36 @@ import { site } from '../data/site';
           CRC habilitado por el Ministerio de Transporte · Certificado ONAC
         </div>
 
-        <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
-          Tu <span class="bg-gradient-to-r from-brand-600 to-accent-500 bg-clip-text text-transparent">examen médico</span> para licencia de conducción, en menos de una hora.
+        <h1 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+          <span class="block text-brand-700/40 text-2xl sm:text-3xl lg:text-4xl font-black mb-1 select-none">“</span>
+          <span class="bg-gradient-to-r from-brand-700 to-accent-500 bg-clip-text text-transparent">Renueva tu licencia hoy en Bogotá</span>
+          <span class="block mt-3 text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800">Sin filas — Proceso en 40 minutos.<span class="text-brand-700/40 ml-1">”</span></span>
         </h1>
 
-        <p class="mt-6 text-lg text-slate-600 max-w-xl">
-          Reporte inmediato al RUNT, atención sin filas y certificación válida en todo el país.
-          Centro de Reconocimiento de Conductores en el corazón de Bogotá.
-        </p>
+        <ul class="mt-6 space-y-2 text-lg text-slate-700 max-w-xl">
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-accent-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.5 7.55a1 1 0 0 1-1.42.004l-3.5-3.5a1 1 0 1 1 1.42-1.41l2.79 2.79 6.79-6.84a1 1 0 0 1 1.414-.008z" clip-rule="evenodd"/></svg>
+            Resultado directo al RUNT
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-accent-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.5 7.55a1 1 0 0 1-1.42.004l-3.5-3.5a1 1 0 1 1 1.42-1.41l2.79 2.79 6.79-6.84a1 1 0 0 1 1.414-.008z" clip-rule="evenodd"/></svg>
+            Atención inmediata en Galerías
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="mt-1 h-5 w-5 flex-shrink-0 text-accent-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.5 7.55a1 1 0 0 1-1.42.004l-3.5-3.5a1 1 0 1 1 1.42-1.41l2.79 2.79 6.79-6.84a1 1 0 0 1 1.414-.008z" clip-rule="evenodd"/></svg>
+            Agenda disponible hoy
+          </li>
+        </ul>
 
-        <div class="mt-8 flex flex-wrap items-center gap-3">
+        <div class="mt-6 flex flex-wrap items-center gap-3">
           <a
-            href={site.social.whatsapp}
+            href={heroWhatsAppUrl}
             target="_blank"
             rel="noopener"
-            class="inline-flex items-center gap-2 rounded-full bg-accent-500 hover:bg-accent-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-accent-500/30 transition-all hover:scale-[1.02]"
+            class="inline-flex items-center gap-3 rounded-full bg-accent-500 hover:bg-accent-600 px-8 py-5 text-lg sm:text-xl font-bold text-white shadow-xl shadow-accent-500/40 transition-all hover:scale-[1.03] animate-pulse-ring-soft"
           >
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.34 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.515 5.26l-.999 3.648 3.973-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-            Agendar por WhatsApp
-          </a>
-          <a
-            href="#precios"
-            class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-base font-semibold text-slate-800 ring-1 ring-slate-200 hover:ring-brand-300 hover:text-brand-700 transition-colors"
-          >
-            Ver precios
+            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.34 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.515 5.26l-.999 3.648 3.973-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            Ver si cumplo requisitos (WhatsApp)
           </a>
         </div>
 

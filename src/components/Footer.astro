@@ -45,12 +45,12 @@ const year = new Date().getFullYear();
           <li>{site.address.street}</li>
           <li>{site.address.city}, Colombia</li>
           <li>
-            <a href={`tel:+57${site.phone.landline}`} class="hover:text-white">{site.phone.landlineDisplay}</a>
+            <a href={site.social.whatsapp} target="_blank" rel="noopener" class="hover:text-white">
+              WhatsApp · {site.phone.mobileDisplay}
+            </a>
           </li>
-          <li>
-            <a href={`tel:+57${site.phone.mobile}`} class="hover:text-white">{site.phone.mobileDisplay}</a>
-          </li>
-          <li><a href={`mailto:${site.email}`} class="hover:text-white">{site.email}</a></li>
+          <li class="text-slate-400">{site.hours.weekdays}</li>
+          <li class="text-slate-400">{site.hours.saturday}</li>
         </ul>
       </div>
     </div>

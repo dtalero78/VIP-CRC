@@ -26,8 +26,8 @@ const localBusiness = {
   logo: `${site.url}/logo.png`,
   image: `${site.url}/og-image.jpg`,
   description: site.description,
-  telephone: [`+57${site.phone.landline}`, `+57${site.phone.mobile}`],
-  email: site.email,
+  telephone: [`+57${site.phone.mobile}`],
+  ...(site.email ? { email: site.email } : {}),
   taxID: site.nit,
   priceRange: '$$',
   address: {
@@ -48,13 +48,13 @@ const localBusiness = {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       opens: '07:00',
-      closes: '17:00',
+      closes: '16:00',
     },
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: 'Saturday',
       opens: '07:00',
-      closes: '13:00',
+      closes: '12:15',
     },
   ],
   areaServed: {
