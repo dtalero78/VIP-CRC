@@ -24,10 +24,10 @@ export const site = {
   phone: {
     landline: '6015782492',
     landlineDisplay: '(601) 578 2492',
-    mobile: '3134010901',
-    mobileDisplay: '313 401 0901',
-    whatsapp: '573134010901',
-    whatsappDisplay: '+57 313 401 0901',
+    mobile: '3134444837',
+    mobileDisplay: '313 444 4837',
+    whatsapp: '573134444837',
+    whatsappDisplay: '+57 313 444 4837',
   },
   email: null as string | null,
   address: {
@@ -47,7 +47,7 @@ export const site = {
     schemaSaturday: 'Sa 07:00-12:15',
   },
   social: {
-    whatsapp: 'https://wa.me/573134010901?text=Hola%2C%20quiero%20agendar%20mi%20examen%20m%C3%A9dico%20para%20licencia%20de%20conducci%C3%B3n.',
+    whatsapp: 'https://wa.me/573134444837?text=Hola%2C%20quiero%20agendar%20mi%20examen%20m%C3%A9dico%20para%20licencia%20de%20conducci%C3%B3n.',
     facebook: 'https://www.facebook.com/',
     instagram: 'https://www.instagram.com/',
   },
