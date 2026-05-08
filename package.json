@@ -13,6 +13,7 @@
     "og": "node scripts/og-image.mjs"
   },
   "dependencies": {
+    "@astrojs/node": "^10.1.0",
     "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.1.10",
