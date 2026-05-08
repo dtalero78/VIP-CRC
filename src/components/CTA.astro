@@ -23,6 +23,7 @@ import { site } from '../data/site';
             href={site.social.whatsapp}
             target="_blank"
             rel="noopener"
+            onclick="gtag('event', 'whatsapp_click', {event_category: 'cta', event_label: 'cta_section'})"
             class="inline-flex items-center gap-2 rounded-full bg-accent-500 hover:bg-accent-600 px-6 py-3 text-base font-semibold text-white shadow-lg"
           >
             Agendar por WhatsApp
