@@ -181,15 +181,5 @@ const faqSchema = {
   </head>
   <body class="bg-white text-slate-800 antialiased">
     <slot />
-    <script>
-      if (!sessionStorage.getItem('v_notified')) {
-        sessionStorage.setItem('v_notified', '1');
-        fetch('/api/visitor-notify', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ page: location.pathname, referrer: document.referrer || '' }),
-        }).catch(() => {});
-      }
-    </script>
   </body>
 </html>
