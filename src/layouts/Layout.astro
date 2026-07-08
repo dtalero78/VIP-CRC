@@ -178,6 +178,27 @@ const faqSchema = {
       gtag('js', new Date());
       gtag('config', 'AW-11172136238');
     </script>
+
+    <!-- Conversión Google Ads "Contacto": clics en WhatsApp y Llamar -->
+    <script>
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a') : null;
+        if (!a || !a.href) return;
+        var h = a.href;
+        var esWhatsApp = h.indexOf('wa.me') > -1 || h.indexOf('api.whatsapp.com') > -1 || h.indexOf('whatsapp:') === 0;
+        var esLlamada  = h.indexOf('tel:') === 0;
+        if (esWhatsApp || esLlamada) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-11172136238/HIZvCPv988wcEK6Kpc8p',
+              'value': 1.0,
+              'currency': 'COP',
+              'transport_type': 'beacon'
+            });
+          }
+        }
+      }, true);
+    </script>
   </head>
   <body class="bg-white text-slate-800 antialiased">
     <slot />
