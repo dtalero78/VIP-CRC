@@ -171,8 +171,8 @@ const faqSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11172136238"></script>
-    <script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-11172136238"></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -180,7 +180,7 @@ const faqSchema = {
     </script>
 
     <!-- Conversión Google Ads "Contacto": clics en WhatsApp y Llamar -->
-    <script>
+    <script is:inline>
       document.addEventListener('click', function (e) {
         var a = e.target && e.target.closest ? e.target.closest('a') : null;
         if (!a || !a.href) return;
